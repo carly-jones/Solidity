@@ -1,1 +1,19 @@
 /* Contract for the creation and exchange of CarlyToken that follows ERC-20 token standard */
+pragma solidity ^0.5.11;
+
+contract CarlyToken {
+    /* declare variables */
+    address owner;
+    string name;
+    string symbol;
+    uint256 totalCarlyTokens;
+    
+    /* create an array with all the balances */
+    mapping (address => uint256) public balanceOf;
+    
+    /* initialize contract with initial supply tokens to creator, hopefully Carly */
+    function CarlyToken (
+        uint256 initialSupply
+        ) {
+        balanceOf[msg.sender] = initialSupply;
+    }
